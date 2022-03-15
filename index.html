@@ -10,6 +10,18 @@
 
   <title>Frontend Mentor | Article preview component</title>
 
+  <style>
+    #vShare::before {
+      content: "";
+      position: absolute;
+      top: 58px;
+      left: 113px;
+      width: 10px;
+      height: 10px;
+      background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+      clip-path: polygon(50% 100%, 0 64%, 0 0, 100% 0, 100% 63%);
+    }
+  </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,6 +38,7 @@
       }
     }
   </script>
+  <script src="./script.js" defer></script>
 </head>
 
 <body class="bg-light_grayish_blue h-[100vh] w-[100vw] flex flex-row justify-center items-center">
@@ -43,7 +56,7 @@
         it felt slightly bare and uninviting. I’ve got some simple tips
         to help you make any room feel complete.
       </div>
-      <div class="flex justify-between p-4">
+      <div id="vName" class="flex justify-between p-4">
         <div class="w-10 h-10">
           <img class="w-100 h-100 rounded-full" src="./images/avatar-michelle.jpg" alt="">
         </div>
@@ -55,13 +68,35 @@
             28 June 2020
           </div>
         </div>
-        <div class="flex justify-center items-center">
+        <div id="shareDiv" class="flex justify-center items-center">
           <div class="bg-gray-300 rounded-full flex justify-center items-center">
             <img class="p-2 w-15 h-15 block" src="./images/icon-share.svg" alt="">
           </div>
         </div>
       </div>
+      <div class="relative">
+        <div id="vShare" class="hidden relative bg-gray-700 flex justify-between px-8 py-5 mt-5">
+          <div class="text-gray-400">SHARE</div>
+          <div class="flex flex-1 pl-4 gap-4">
+            <img class="inline-block" src="./images/icon-facebook.svg" alt="facebook" />
+            <img class="inline-block" src="./images/icon-twitter.svg" alt="twitter" />
+            <img class="inline-block" src="./images/icon-pinterest.svg" alt="pinterest" />
+          </div>
+            <div id="shareDiv" class="flex justify-center items-center md:hidden">
+              <div class="bg-gray-300 rounded-full flex justify-center items-center">
+                <img class="p-2 w-15 h-15 block" src="./images/icon-share.svg" alt="">
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div id="breakpoints">
+    <div id="breakpoint-sm" class="hidden sm:block md:hidden lg:hidden xl:hidden 2xl:hidden w-0 h-0"></div>
+    <div id="breakpoint-md" class="hidden sm:hidden md:block lg:hidden xl:hidden 2xl:hidden w-0 h-0"></div>
+    <div id="breakpoint-lg" class="hidden sm:hidden md:hidden lg:block xl:hidden 2xl:hidden w-0 h-0"></div>
+    <div id="breakpoint-xl" class="hidden sm:hidden md:hidden lg:hidden xl:block 2xl:hidden w-0 h-0"></div>
+    <div id="breakpoint-2xl" class="hidden sm:hidden md:hidden lg:hidden xl:hidden 2xl:block w-0 h-0"></div>
   </div>
 </body>
 
