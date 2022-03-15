@@ -9,26 +9,32 @@ const getCurrentBreakpoint = () => {
     return breakpoint;
 };
 
+let selected = false;
+function handleClick(event) {
+        const currentBreakPoint = getCurrentBreakpoint();
+        if (!selected) {
+            if (currentBreakPoint === "unknown" || currentBreakPoint === "sm") {
+                vName.classList.add("hidden");
+                vShare.classList.remove("hidden");
+            } else {
+                vShare.classList.remove("hidden");
+                vShare.classList.add("md:absolute");
+                vShare.classList.add("md:top-[-160px]");
+                vShare.classList.add("md:left-[350px]");
+                vShare.classList.add("md:w-[15rem]");
+            }
+        } else {
+            vName.classList.remove("hidden");
+            vShare.classList.add("hidden");
+        }
+    
+        selected = !selected;
+}
+
 const shareDiv = document.getElementById("shareDiv");
+const shareDiv2 = document.getElementById("shareDiv2");
 const vShare = document.getElementById("vShare");
 const vName = document.getElementById("vName");
 
-const selected = false;
-shareDiv.addEventListener("click", (event) => {
-    const currentBreakPoint = getCurrentBreakpoint();
-    if (!selected) {
-        if (currentBreakPoint === "unknown" || currentBreakPoint === "sm") {
-            vName.classList.add("hidden");
-            vShare.classList.remove("hidden");
-        } else {
-            vShare.classList.remove("hidden");
-            vShare.classList.add("md:absolute");
-            vShare.classList.add("md:top-[-160px]");
-            vShare.classList.add("md:left-[350px]");
-            vShare.classList.add("md:w-[15rem]");
-        }
-    } else {
-        vName.classList.remove("hidden");
-        vShare.classList.add("hidden");
-    }
-});
+shareDiv.addEventListener("click", handleClick);
+shareDiv2.addEventListener("click", handleClick);
